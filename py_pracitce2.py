@@ -1,36 +1,50 @@
-#モノを買うプログラム
+# 対象ユーザーの注文履歴を返す処理を作成してください
+def get_order_history(USER, ORDERS):
+    order_history = []
 
-#商品の辞書
-items = {"apple":100,"orange":200,"banana":150}
+    for ORDER in ORDERS:
+        if USER["user_id"] == ORDER["user_id"]:
+            order_history.append(ORDER)
+                
+    return order_history
+    
+# ここから下は触らないでください
+# 利用するデータ
+orders = [
+    {
+        'order_id': 1,
+        'user_id': 1,
+        'items': [
+            {'name': 'キャップ', 'type': 'cap', 'price': 8000},
+            {'name': 'Tシャツ', 'type': 'clothes', 'price': 2000}
+        ]
+    },
+    {
+        'order_id': 2,
+        'user_id': 2,
+        'items': [
+            {'name': 'ランニングシューズ', 'type': 'shoes', 'price': 15000},
+        ]
+    },
+    {
+        'order_id': 3,
+        'user_id': 1,
+        'items': [
+            {'name': 'スポーツドリンク', 'type': 'food', 'price': 150}
+        ]
+    },
+    {
+        'order_id': 4,
+        'user_id': 3,
+        'items': [
+            {'name': 'アンダーウェア', 'type': 'clothes', 'price': 4500},
+            {'name': 'テニスラケット', 'type': 'sports goods', 'price': 8000}          
+        ]
+    }
+]
 
-#所持金
-money = 1000
-
-#仕切り
-stick = "--------------------"
-
-print("あなたの所持金は" + str(money) + "円です")
-
-#処理
-for item in items:
-    print(stick)
-    print("購入する" + item + "の個数を入力してください:")
-    item_input = input(">")
-
-    price = items[item] * int(item_input)
-
-    if price < money:
-        print("\n購入金額は" + str(price) + "円です")
-        money -= price
-
-    elif price == money:
-        print("\n購入金額は" + str(price) + "円です")
-        print("所持金がなくなりました")
-        money -= price
-        break
-
-    else:
-        print("\n購入できませんでした")     
-
-print("\n" + stick)
-print("最終的な所持金は" + str(money) + "円です")           
+user = {'user_id': 1, 'status': 'basic'}
+# 関数の呼び出し
+user_orders = get_order_history(user, orders)
+for order in user_orders:
+    print(order)
