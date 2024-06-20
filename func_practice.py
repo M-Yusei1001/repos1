@@ -1,3 +1,3 @@
 def loop_print(num):
-    for number in range(num):
-        print("Hello!")
+    for i in range(0, int(num)):
+        print(str(i)+ " : " + "Hello!")
