@@ -1,17 +1,17 @@
-class Formula:
-    def __init__(self, name):
-        self.name = name
+class Team:
 
-    def driver_name(self, num):
+    def __init__(self, team):
+        self.team = team
 
-        if num == 1:
-            return "Max Verstappen"
-        elif num == 2:
-            return "Sergio Perez"
-        
-    def driver_number(self, num):
+    def driver_wins(self, num):
+        circuits = {
+            1:{"Suzuka":True},
+            2:{"Monaco":False}
+        }
 
-        if num == 1:
-            return 1
-        elif num == 2:
-            return 11    
+        circuit = circuits[num]
+
+        if circuit == True:
+            return self.name + "は" + circuit[circuit] + "で勝利しています"
+        elif circuit == False:
+            return self.name + "は" + circuit[circuit] + "で敗北しています"

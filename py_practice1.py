@@ -1,8 +1,7 @@
-from func_practice import Formula
+from func_practice import Team
 
-rb = Formula("Redbull_Honda")
+rb1 = Team("Redbull")
 
-print(rb.name)
+rb1.name = "Max_Verstappen"
 
-for i in range(1,3):
-    print(str(i) + ". "+ rb.driver_name(i) + ":" + str(rb.driver_number(i)))
+print(rb1.driver_wins(1))
