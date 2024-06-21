@@ -1,5 +1,8 @@
-import func_practice as func
+from func_practice import Formula
 
-number = 10
+rb = Formula("Redbull_Honda")
 
-func.loop_print(number)
+print(rb.name)
+
+for i in range(1,3):
+    print(str(i) + ". "+ rb.driver_name(i) + ":" + str(rb.driver_number(i)))
