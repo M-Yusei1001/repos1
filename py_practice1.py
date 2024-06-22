@@ -1,7 +1,6 @@
-from func_practice import Team
+from utility import MenuItem
 
-rb1 = Team("Redbull")
+item = MenuItem("pizza", 500, 1000)
 
-rb1.name = "Max_Verstappen"
-
-print(rb1.driver_wins(1))
+print(item)
+    
