@@ -1,0 +1,44 @@
+body{
+    font-family: Impact;
+}
+
+li{
+    list-style: none;
+}
+
+.header{
+    color:#4f495c;
+    height: 90px;
+    background-color: #9370db;
+}
+
+.header-logo{
+    float: left;
+    font-size: 36px;
+    padding: 20px 40px;
+}
+
+.header-list li{
+    float: left;
+    padding: 33px 20px;
+}
+
+.main{
+    padding: 100px 80px;
+}
+
+.footer{
+    font-family: "Segoe UI";
+    background-color: #83769c;
+    color:#fff;
+    height: 200px;
+    padding: 50px;
+}
+
+.footer-logo{
+    font-size: 32px;
+}
+
+.footer-list p{
+
+}
