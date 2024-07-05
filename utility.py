@@ -1,4 +1,6 @@
 class MenuItem:
+    #__init__はクラスを呼び出すと必ず最初に実行される関数
+    #クラス内の関数は、引数を使わなくても必ず第一引数にselfをいれておく
     def __init__(self, name, price, calorie):
         self.name = name
         self.price = int(price)
