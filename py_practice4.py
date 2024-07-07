@@ -1,8 +1,16 @@
-import time
-import datetime as dt
+import csv
 
-for i in range(0, 10):
-    now = dt.datetime.now()
-    print("現在の日時：", now.strftime("%Y年%m月%d日 %H時%M分%S秒"))
-    time.sleep(1)
+date = []
+DATE_COLUMN = 0
+
+#BOM付きCSVも読み込めるように、encodingはutf-8-sigを指定
+with open("date_practice.csv", mode="r", encoding="utf-8-sig") as file:
+    reader = csv.reader(file)
+    
+    for row in reader:
+        date.append(row[DATE_COLUMN].split("/"))
+        
+
+print(date)        
+
 
