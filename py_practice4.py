@@ -1,16 +1,20 @@
-import csv
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
-date = []
-DATE_COLUMN = 0
+path = "フォロワー数推移.csv"
+df = pd.read_csv(path, encoding="utf-8-sig", parse_dates=["Date"])
 
-#BOM付きCSVも読み込めるように、encodingはutf-8-sigを指定
-with open("date_practice.csv", mode="r", encoding="utf-8-sig") as file:
-    reader = csv.reader(file)
-    
-    for row in reader:
-        date.append(row[DATE_COLUMN].split("/"))
-        
+print(df)
 
-print(date)        
+#描画領域の確保
+fig = plt.figure()
 
+#図の追加
+ax = fig.add_subplot(1, 1, 1)
 
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y\n%m-%d"))
+ax.plot(df["Date"], df["Followers"])
+plt.xticks(rotation = 90)
+plt.grid()
+plt.show()

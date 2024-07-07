@@ -19,7 +19,7 @@ for value in range(0, MAX_RANGE):
 for i in x:
     y.append(round(math.sin(i) + math.sin(i / MAX_RANGE_2), 5))               
 
-with open("plot.csv", mode="w", encoding="utf-8") as f:
+with open("plot.csv", mode="w", encoding="utf-8-sig") as f:
     for i in range(0, len(x)):
         f.write(str(x[i]) + ", " + str(y[i]) + "\n") 
 
@@ -29,7 +29,7 @@ print("MARKER_SIZE > " + str(MARKER_SIZE))
 x_read = []
 y_read = []
 
-with open("plot.csv", mode="r", encoding="utf-8") as f:
+with open("plot.csv", mode="r", encoding="utf-8-sig") as f:
     #.reader()メソッドにファイルオブジェクトfを渡す
     reader = csv.reader(f)
 
