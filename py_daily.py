@@ -16,8 +16,10 @@ for num in x:
 fig = plt.figure()
 
 #図の追加
-ax = fig.add_subplot(1,1,1)
+ax = fig.add_subplot(2,2,1)
+ay = fig.add_subplot(2,2,3)
 
+ay.scatter(y,x,marker="+",s=5)
 ax.scatter(x, y, marker="+", s=5)
 plt.show()
     
