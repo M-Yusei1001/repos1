@@ -1,25 +1,37 @@
 import matplotlib.pyplot as plt
 import math
 
-RANGE = 10
-dx = 100
+RANGE = 100
+MULTIPY = 100
+MARKER_SIZE = 5
 
 x = []
-y = []
+ya = []
+yb = []
+yc = []
 
-for num in range(0, dx):
-    x.append(round((RANGE / dx) * num, 5))
-for num in x:
-    y.append(num*num)
+for i in range(0, RANGE + 1):
+    x.append(round((1/MULTIPY)*i, 5))
 
-#描画領域の確保
+for i in x:
+    a = round(math.sin(2 * i), 5)
+    b = round(math.exp(-i), 5)
+    c = a * b
+
+    ya.append(a)
+    yb.append(b)
+    yc.append(c)
+
+#描画領域の用意
 fig = plt.figure()
 
-#図の追加
-ax = fig.add_subplot(2,2,1)
-ay = fig.add_subplot(2,2,3)
+#図の用意
+ax = fig.add_subplot(1,1,1)
 
-ay.scatter(y,x,marker="+",s=5)
-ax.scatter(x, y, marker="+", s=5)
+ax.scatter(x, ya, marker="+", s = MARKER_SIZE, label="sin(2x)")
+ax.scatter(x, yb, marker="+", s = MARKER_SIZE, label="exp(-x)")
+ax.scatter(x, yc, marker="+", s = MARKER_SIZE, label="exp(-x)*sin(2x)")
+
+ax.legend()
+plt.grid()
 plt.show()
-    
