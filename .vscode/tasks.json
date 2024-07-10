@@ -1,0 +1,44 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run",
+			"type": "process",
+			"command": "C:\\processing-4.0b2-windows64\\processing-4.0b2\\processing-java",
+			"args": [
+				"--force",
+				"--sketch=${workspaceFolder}\\${relativeFileDirname}",
+				"--run"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			}
+		},
+		{
+			"type": "docker-build",
+			"label": "docker-build",
+			"platform": "python",
+			"dockerBuild": {
+				"tag": "repos1:latest",
+				"dockerfile": "${workspaceFolder}/Dockerfile",
+				"context": "${workspaceFolder}",
+				"pull": true
+			}
+		},
+		{
+			"type": "docker-run",
+			"label": "docker-run: debug",
+			"dependsOn": [
+				"docker-build"
+			],
+			"python": {
+				"file": "py_daily.py"
+			}
+		}
+	]
+}
